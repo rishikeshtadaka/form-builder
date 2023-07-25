@@ -1,9 +1,10 @@
 import { NgModule } from "@angular/core";
+import { FormBuilderRoutingModule } from "./form-builder-routing.module";
 
 @NgModule({
     declarations: [
   ],
-    imports: [],
+    imports: [FormBuilderRoutingModule],
     providers: [],
     exports:[
     ]
