@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+  }
+#form-builder{
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 30px;
+  text-align: center;
+}
+#tools{
+  background-color: #f1f1f1;
+  padding: 10px;
+  flex: 30%;
+}
+#build-area{
+  background-color: dodgerblue;
+  padding: 10px;
+  flex: 70%;
+}
+#build-area #target{
+    height: 600px;
+    width: 100%;
+}

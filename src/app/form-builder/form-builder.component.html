@@ -1,0 +1,24 @@
+<h1>Form Builder</h1>
+<div id="form-builder">
+    <div id="tools">
+        <div id="text-box" draggable="true" (dragstart)="dragstartHandler($event)">
+            <span>Text Box</span>
+            <input type="text"/>
+        </div>
+        <div id="text-area" draggable="true" (dragstart)="dragstartHandler($event)">
+            <span>Text Box</span>
+            <textarea></textarea>
+        </div> 
+        <div id="date-picker" draggable="true" (dragstart)="dragstartHandler($event)">
+            <span>Text Box</span>
+            <input type="date"/>
+        </div>
+    </div>
+    <div id="build-area">
+        <div 
+            id="target"
+            (drop)="dropHandler($event)"
+            (dragover)="dragoverHandler($event)">
+        </div>
+    </div>
+</div>
