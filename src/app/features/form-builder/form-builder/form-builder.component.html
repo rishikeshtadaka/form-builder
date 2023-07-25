@@ -10,8 +10,10 @@
             <textarea></textarea>
         </div> 
         <div id="date-picker" draggable="true" (dragstart)="dragstartHandler($event)">
-            <span>Text Box</span>
-            <input type="date"/>
+            <cs-date-picker></cs-date-picker>
+        </div>
+        <div id="ddl" draggable="true" (dragstart)="dragstartHandler($event)">
+            <cs-dropdown-list></cs-dropdown-list>
         </div>
     </div>
     <div id="build-area">

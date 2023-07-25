@@ -3,18 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormBuilderComponent } from './form-builder/form-builder.component';
-import { FormRendererComponent } from './form-renderer/form-renderer.component';
+import { FormBuilderComponent } from './features/form-builder/form-builder/form-builder.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormBuilderComponent,
-    FormRendererComponent
+    FormBuilderComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
