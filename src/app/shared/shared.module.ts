@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
-import { DatePickerComponent } from './components/date-picker/date-picker.component';
-import { DropdownListComponent } from './components/dropdown-list/dropdown-list.component';
+import { DatePickerComponent } from './components/form-builder/date-picker/date-picker.component';
+import { DropdownListComponent } from './components/form-builder/dropdown-list/dropdown-list.component';
 
 @NgModule({
     declarations: [
