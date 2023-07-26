@@ -47,6 +47,8 @@ export class FormBuilderComponent implements OnInit {
     this.formContainer.get(0)?.createComponent(component.component);
   }
 
+  public save(): void {}
+
   // public getClonedElement(elementId:string):Node{
   //   let node=document.getElementById(elementId);
   //   if(!node) {
@@ -58,7 +60,7 @@ export class FormBuilderComponent implements OnInit {
   //   return clonedElement;
   // }
 
-  getUniqueName(prefix: string = 'elment'): string {
-    return `${prefix}-${new Date().getTime()}`;
-  }
+  // getUniqueName(prefix: string = 'element'): string {
+  //   return `${prefix}-${new Date().getTime()}`;
+  // }
 }

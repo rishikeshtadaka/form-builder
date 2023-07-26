@@ -47,7 +47,7 @@ export class FormRendererComponent implements OnInit {
                 name: FormBuilderComponentConstant.datePicker,
               },
               {
-                name: FormBuilderComponentConstant.textBox,
+                name: FormBuilderComponentConstant.dropdownlist,
               },
               {},
               {},
