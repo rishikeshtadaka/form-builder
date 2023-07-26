@@ -1,30 +1,57 @@
-import { Injectable } from "@angular/core";
-import { ChecklistComponent } from "@shared/components/form-builder/checklist/checklist.component";
-import { DatePickerComponent } from "@shared/components/form-builder/date-picker/date-picker.component";
-import { DropdownListComponent } from "@shared/components/form-builder/dropdown-list/dropdown-list.component";
-import { TextAreaComponent } from "@shared/components/form-builder/text-area/text-area.component";
-import { TextBoxComponent } from "@shared/components/form-builder/text-box/text-box.component";
+import { Injectable } from '@angular/core';
+import { DatePickerComponent } from '@shared/components/form-builder/date-picker/date-picker.component';
+import { DropdownListComponent } from '@shared/components/form-builder/dropdown-list/dropdown-list.component';
+import { TextAreaComponent } from '@shared/components/form-builder/text-area/text-area.component';
+import { TextBoxComponent } from '@shared/components/form-builder/text-box/text-box.component';
+import { FormBuilderComponentConstant } from '@shared/static/form-builder-component.constant';
+import { ToolKitListModel, ToolKitModel } from '../view-models/tool-kit.model';
 
-@Injectable({providedIn:"root"})
-export class FormBuilderComponentService{
-    private components:Map<string,any>;
-    constructor(){
-        this.components=new Map<string,any>();
-        this.setComponents();
-    }
+@Injectable({ providedIn: 'root' })
+export class FormBuilderComponentService {
+  private toolKitListModel = new ToolKitListModel();
 
-    private setComponents():void{
-        this.components.set("text-box",TextBoxComponent);
-        this.components.set("text-area",TextAreaComponent);
-        this.components.set("date-picker",DatePickerComponent);
-        this.components.set("ddl",DropdownListComponent);
-    }
+  constructor() {
+    this.setToolKitList();
+  }
 
-    public getComponents():Map<string,any>{
-        return this.components;
-    }
+  public getComponent(componentName: string): ToolKitModel {
+    let component = this.toolKitListModel.get(componentName);
+    if (component) return component;
+    throw `Component:${componentName} not found`;
+  }
 
-    public getComponent(componentName:string):any{
-        return this.components.get(componentName);
-    }
+  public getComponents(): ToolKitListModel {
+    return this.toolKitListModel;
+  }
+
+  private setToolKitList(): void {
+    this.toolKitListModel.add(
+      new ToolKitModel(
+        FormBuilderComponentConstant.textBox,
+        'Text Box',
+        TextBoxComponent
+      )
+    );
+    this.toolKitListModel.add(
+      new ToolKitModel(
+        FormBuilderComponentConstant.textArea,
+        'Text Area',
+        TextAreaComponent
+      )
+    );
+    this.toolKitListModel.add(
+      new ToolKitModel(
+        FormBuilderComponentConstant.datePicker,
+        'Datepicker',
+        DatePickerComponent
+      )
+    );
+    this.toolKitListModel.add(
+      new ToolKitModel(
+        FormBuilderComponentConstant.textBox,
+        'Dropdownlist',
+        DropdownListComponent
+      )
+    );
+  }
 }
