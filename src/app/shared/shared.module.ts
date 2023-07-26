@@ -1,5 +1,5 @@
-import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { DatePickerComponent } from './components/form-builder/date-picker/date-picker.component';
 import { DropdownListComponent } from './components/form-builder/dropdown-list/dropdown-list.component';
@@ -10,8 +10,10 @@ import { TextAreaComponent } from './components/form-builder/text-area/text-area
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatListModule} from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { MatSelectModule } from '@angular/material/select';
+import { NgFor } from '@angular/common';
 
 import {
   DateAdapter,
@@ -21,23 +23,38 @@ import {
 } from '@angular/material/core';
 
 @NgModule({
-    declarations: [
+  declarations: [
     DatePickerComponent,
     DropdownListComponent,
     TextBoxComponent,
     ChecklistComponent,
-    TextAreaComponent
+    TextAreaComponent,
   ],
-    imports: [FormsModule,MatFormFieldModule,MatInputModule,MatDatepickerModule,MatNativeDateModule,MatListModule, MatDividerModule],
-    providers: [],
-    exports:[
-        DatePickerComponent,
-        DropdownListComponent,      
-        TextBoxComponent,
-        ChecklistComponent,
-        FormsModule,MatFormFieldModule,MatInputModule,MatDatepickerModule,MatNativeDateModule,MatListModule, MatDividerModule
-  ]
-  })
-export class SharedModule{
-
-}
+  imports: [
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatListModule,
+    MatDividerModule,
+    MatSelectModule,
+    NgFor,
+  ],
+  providers: [],
+  exports: [
+    DatePickerComponent,
+    DropdownListComponent,
+    TextBoxComponent,
+    ChecklistComponent,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatListModule,
+    MatDividerModule,
+    MatSelectModule,
+  ],
+})
+export class SharedModule {}

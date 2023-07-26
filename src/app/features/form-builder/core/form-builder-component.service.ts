@@ -48,7 +48,7 @@ export class FormBuilderComponentService {
     );
     this.toolKitListModel.add(
       new ToolKitModel(
-        FormBuilderComponentConstant.textBox,
+        FormBuilderComponentConstant.dropdownlist,
         'Dropdownlist',
         DropdownListComponent
       )
