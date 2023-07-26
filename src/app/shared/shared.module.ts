@@ -3,6 +3,9 @@ import { DatePickerComponent } from './components/form-builder/date-picker/date-
 import { DropdownListComponent } from './components/form-builder/dropdown-list/dropdown-list.component';
 import { TextBoxComponent } from './components/form-builder/text-box/text-box.component';
 import { ChecklistComponent } from './components/form-builder/checklist/checklist.component';
+import { FormsModule } from "@angular/forms";
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
     declarations: [
@@ -11,11 +14,15 @@ import { ChecklistComponent } from './components/form-builder/checklist/checklis
     TextBoxComponent,
     ChecklistComponent
   ],
-    imports: [],
+    imports: [FormsModule,MatFormFieldModule,MatInputModule],
     providers: [],
     exports:[
         DatePickerComponent,
-        DropdownListComponent]
+        DropdownListComponent,      
+        TextBoxComponent,
+        ChecklistComponent,
+        FormsModule,MatFormFieldModule,MatInputModule
+  ]
   })
 export class SharedModule{
 

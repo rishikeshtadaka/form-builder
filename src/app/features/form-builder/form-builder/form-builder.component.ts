@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChildren, ViewContainerRef } from '@angular/core';
+import { TextBoxComponent } from 'src/app/shared/components/form-builder/text-box/text-box.component';
+import { FormBuilderComponentService } from '../core/form-builder-component.service';
 
 @Component({
   selector: 'app-form-builder',
@@ -8,8 +10,10 @@ import { Component, OnInit } from '@angular/core';
 export class FormBuilderComponent implements OnInit {
   private draggingElementIdLiteral:string="draggingElementId";
   private moveEventName:string="move";
+  @ViewChildren('formContainer',{read:ViewContainerRef})
+  private formContainer:QueryList<ViewContainerRef>;
 
-  constructor() { }
+  constructor(private formBuilderComponentService:FormBuilderComponentService) { }
 
   public ngOnInit(): void {
   }
@@ -27,7 +31,9 @@ export class FormBuilderComponent implements OnInit {
   public dropHandler(ev:any):void {
     ev.preventDefault();
     const elementId = ev.dataTransfer.getData(this.draggingElementIdLiteral);
-    ev.target.appendChild(this.getClonedElement(elementId));
+    //ev.target.appendChild(this.getClonedElement(elementId));
+    let component=this.formBuilderComponentService.getComponent(elementId);
+    this.formContainer.get(0)?.createComponent(component);
   }
 
   public getClonedElement(elementId:string):Node{

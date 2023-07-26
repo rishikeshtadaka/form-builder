@@ -3,17 +3,15 @@
     <div id="tools">
         <div id="text-box" draggable="true" (dragstart)="dragstartHandler($event)">
             <span>Text Box</span>
-            <input type="text"/>
         </div>
         <div id="text-area" draggable="true" (dragstart)="dragstartHandler($event)">
             <span>Text Box</span>
-            <textarea></textarea>
         </div> 
         <div id="date-picker" draggable="true" (dragstart)="dragstartHandler($event)">
-            <cs-date-picker></cs-date-picker>
+            <span>Date Picker</span>
         </div>
         <div id="ddl" draggable="true" (dragstart)="dragstartHandler($event)">
-            <cs-dropdown-list></cs-dropdown-list>
+            <span>Dropdownlist</span>
         </div>
     </div>
     <div id="build-area">
@@ -21,6 +19,7 @@
             id="target"
             (drop)="dropHandler($event)"
             (dragover)="dragoverHandler($event)">
+            <ng-template #formContainer></ng-template>
         </div>
     </div>
 </div>
