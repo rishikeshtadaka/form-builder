@@ -6,6 +6,7 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { FormBuilderComponentService } from '../core/form-builder-component.service';
+import { ToolKitListModel } from '../view-models/tool-kit.model';
 
 @Component({
   selector: 'app-form-builder',
@@ -18,9 +19,13 @@ export class FormBuilderComponent implements OnInit {
   @ViewChildren('formContainer', { read: ViewContainerRef })
   private formContainer: QueryList<ViewContainerRef>;
 
+  public toolKitListModel = new ToolKitListModel();
+
   constructor(
     private formBuilderComponentService: FormBuilderComponentService
-  ) {}
+  ) {
+    this.toolKitListModel = this.formBuilderComponentService.getComponents();
+  }
 
   public ngOnInit(): void {}
 

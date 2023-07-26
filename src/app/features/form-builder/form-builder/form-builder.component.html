@@ -2,34 +2,15 @@
 <div id="form-builder">
   <div id="tools">
     <mat-list>
-      <mat-list-item>
+      <mat-list-item *ngFor="let component of toolKitListModel.listToolKit">
         <div
-          id="text-box"
+          [id]="component.componentName"
           draggable="true"
           (dragstart)="dragstartHandler($event)"
         >
-          <span>Text Box</span>
+          <span>{{ component.componentDisplayName }}</span>
         </div>
-      </mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item>
-        <div
-          id="text-area"
-          draggable="true"
-          (dragstart)="dragstartHandler($event)"
-        >
-          <span>Text Area</span>
-        </div>
-      </mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item>
-        <div
-          id="date-picker"
-          draggable="true"
-          (dragstart)="dragstartHandler($event)"
-        >
-          <span>Date Picker</span>
-        </div>
+        <mat-divider></mat-divider>
       </mat-list-item>
     </mat-list>
   </div>
