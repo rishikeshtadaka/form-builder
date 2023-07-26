@@ -1,13 +1,18 @@
 import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+
 import { DatePickerComponent } from './components/form-builder/date-picker/date-picker.component';
 import { DropdownListComponent } from './components/form-builder/dropdown-list/dropdown-list.component';
 import { TextBoxComponent } from './components/form-builder/text-box/text-box.component';
 import { ChecklistComponent } from './components/form-builder/checklist/checklist.component';
-import { FormsModule } from "@angular/forms";
+import { TextAreaComponent } from './components/form-builder/text-area/text-area.component';
+
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { TextAreaComponent } from './components/form-builder/text-area/text-area.component';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
+
 import {
   DateAdapter,
   MAT_DATE_FORMATS,
@@ -23,14 +28,14 @@ import {
     ChecklistComponent,
     TextAreaComponent
   ],
-    imports: [FormsModule,MatFormFieldModule,MatInputModule,MatDatepickerModule,MatNativeDateModule],
+    imports: [FormsModule,MatFormFieldModule,MatInputModule,MatDatepickerModule,MatNativeDateModule,MatListModule, MatDividerModule],
     providers: [],
     exports:[
         DatePickerComponent,
         DropdownListComponent,      
         TextBoxComponent,
         ChecklistComponent,
-        FormsModule,MatFormFieldModule,MatInputModule
+        FormsModule,MatFormFieldModule,MatInputModule,MatDatepickerModule,MatNativeDateModule,MatListModule, MatDividerModule
   ]
   })
 export class SharedModule{
