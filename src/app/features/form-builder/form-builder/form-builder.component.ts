@@ -5,8 +5,7 @@ import {
   ViewChildren,
   ViewContainerRef,
 } from '@angular/core';
-import { BaseFormBuilderComponent } from '@shared/components/base/base-form-builder.component';
-import { FormBuilderComponentService } from '../core/form-builder-component.service';
+import { FormBuilderComponentRegistryService } from '../core/form-builder-component-registry.service';
 import { ToolKitListModel } from '../view-models/tool-kit.model';
 
 @Component({
@@ -23,9 +22,10 @@ export class FormBuilderComponent implements OnInit {
   public toolKitListModel = new ToolKitListModel();
 
   constructor(
-    private formBuilderComponentService: FormBuilderComponentService
+    private formBuilderComponentRegistryService: FormBuilderComponentRegistryService
   ) {
-    this.toolKitListModel = this.formBuilderComponentService.getComponents();
+    this.toolKitListModel =
+      this.formBuilderComponentRegistryService.getComponents();
   }
 
   public ngOnInit(): void {}
@@ -43,7 +43,8 @@ export class FormBuilderComponent implements OnInit {
   public dropHandler(ev: any): void {
     ev.preventDefault();
     const elementId = ev.dataTransfer.getData(this.draggingElementIdLiteral);
-    let component = this.formBuilderComponentService.getComponent(elementId);
+    let component =
+      this.formBuilderComponentRegistryService.getComponent(elementId);
     let createdComponent = this.formContainer
       .get(0)
       ?.createComponent(component.component).instance;

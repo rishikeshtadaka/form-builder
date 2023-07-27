@@ -7,7 +7,7 @@ import { FormBuilderComponentConstant } from '@shared/static/form-builder-compon
 import { ToolKitListModel, ToolKitModel } from '../view-models/tool-kit.model';
 
 @Injectable({ providedIn: 'root' })
-export class FormBuilderComponentService {
+export class FormBuilderComponentRegistryService {
   private toolKitListModel = new ToolKitListModel();
 
   constructor() {

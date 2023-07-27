@@ -6,7 +6,7 @@ import {
   ViewChildren,
   ViewContainerRef,
 } from '@angular/core';
-import { FormBuilderComponentService } from '@features/form-builder/core/form-builder-component.service';
+import { FormBuilderComponentRegistryService } from '@features/form-builder/core/form-builder-component-registry.service';
 import { FormBuilderComponentConstant } from '@shared/static/form-builder-component.constant';
 
 @Component({
@@ -22,7 +22,7 @@ export class FormRendererComponent implements OnInit {
   private formContainer: QueryList<ViewContainerRef>;
 
   constructor(
-    private formBuilderComponentService: FormBuilderComponentService
+    private formBuilderComponentRegistryService: FormBuilderComponentRegistryService
   ) {
     this.setTestJson();
   }
@@ -71,7 +71,7 @@ export class FormRendererComponent implements OnInit {
 
   private renderComponent(componentName: string): void {
     let component =
-      this.formBuilderComponentService.getComponent(componentName);
+      this.formBuilderComponentRegistryService.getComponent(componentName);
     this.formContainer.get(0)?.createComponent(component.component);
   }
 
