@@ -5,6 +5,7 @@ import {
   ViewChildren,
   ViewContainerRef,
 } from '@angular/core';
+import { BaseFormBuilderComponent } from '@shared/components/base/base-form-builder.component';
 import { FormBuilderComponentService } from '../core/form-builder-component.service';
 import { ToolKitListModel } from '../view-models/tool-kit.model';
 
@@ -42,25 +43,14 @@ export class FormBuilderComponent implements OnInit {
   public dropHandler(ev: any): void {
     ev.preventDefault();
     const elementId = ev.dataTransfer.getData(this.draggingElementIdLiteral);
-    //ev.target.appendChild(this.getClonedElement(elementId));
     let component = this.formBuilderComponentService.getComponent(elementId);
-    this.formContainer.get(0)?.createComponent(component.component);
+    let createdComponent = this.formContainer
+      .get(0)
+      ?.createComponent(component.component).instance;
   }
 
-  public save(): void {}
-
-  // public getClonedElement(elementId:string):Node{
-  //   let node=document.getElementById(elementId);
-  //   if(!node) {
-  //     throw(`Element id is missing or element is not found with id: ${elementId}`);
-  //   };
-
-  //   let clonedElement= node.cloneNode(true);
-  //   (clonedElement as any)["id"]=this.getUniqueName(elementId);
-  //   return clonedElement;
-  // }
-
-  // getUniqueName(prefix: string = 'element'): string {
-  //   return `${prefix}-${new Date().getTime()}`;
-  // }
+  public save(): void {
+    //this.formContainer.get(0).
+    console.log('Save');
+  }
 }

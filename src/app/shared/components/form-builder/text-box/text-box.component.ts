@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { BaseFormBuilderComponent } from '@shared/components/base/base-form-builder.component';
 
 @Component({
@@ -10,6 +10,11 @@ export class TextBoxComponent
   extends BaseFormBuilderComponent
   implements OnInit
 {
+  @Input()
+  public labelName: string = 'Name';
+
+  public displayOptions: boolean = false;
+
   constructor() {
     super();
   }

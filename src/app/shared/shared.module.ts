@@ -13,14 +13,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
 import { NgFor } from '@angular/common';
 
-import {
-  DateAdapter,
-  MAT_DATE_FORMATS,
-  MatDateFormats,
-  MatNativeDateModule,
-} from '@angular/material/core';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -40,6 +36,7 @@ import {
     MatDividerModule,
     MatSelectModule,
     NgFor,
+    MatButtonModule,
   ],
   providers: [],
   exports: [
@@ -55,6 +52,7 @@ import {
     MatListModule,
     MatDividerModule,
     MatSelectModule,
+    MatButtonModule,
   ],
 })
 export class SharedModule {}
