@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ComponentHolderComponent } from '@shared/components/form-builder/component-holder/component-holder.component';
 import { DatePickerComponent } from '@shared/components/form-builder/date-picker/date-picker.component';
 import { DropdownListComponent } from '@shared/components/form-builder/dropdown-list/dropdown-list.component';
 import { TextAreaComponent } from '@shared/components/form-builder/text-area/text-area.component';
@@ -51,6 +52,13 @@ export class FormBuilderComponentRegistryService {
         FormBuilderComponentConstant.dropdownlist,
         'Dropdownlist',
         DropdownListComponent
+      )
+    );
+    this.toolKitListModel.add(
+      new ToolKitModel(
+        FormBuilderComponentConstant.componentHolder,
+        'Component Holder',
+        ComponentHolderComponent
       )
     );
   }

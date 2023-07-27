@@ -15,8 +15,10 @@ import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { NgFor } from '@angular/common';
-
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatNativeDateModule } from '@angular/material/core';
+
+import { ComponentHolderComponent } from './components/form-builder/component-holder/component-holder.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     TextBoxComponent,
     ChecklistComponent,
     TextAreaComponent,
+    ComponentHolderComponent,
   ],
   imports: [
     FormsModule,
@@ -37,6 +40,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatSelectModule,
     NgFor,
     MatButtonModule,
+    MatGridListModule,
   ],
   providers: [],
   exports: [
@@ -53,6 +57,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatDividerModule,
     MatSelectModule,
     MatButtonModule,
+    MatGridListModule,
   ],
 })
 export class SharedModule {}
