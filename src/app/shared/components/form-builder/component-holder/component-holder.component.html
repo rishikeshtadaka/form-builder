@@ -5,6 +5,13 @@
     [rowspan]="tile.rows"
     [style.background]="tile.color"
   >
-    {{ tile.text }}
+    <div
+      [id]="tile.id"
+      class="component-holder"
+      (drop)="dropHandler($event)"
+      (dragover)="dragoverHandler($event)"
+    >
+      <ng-template #formContainer></ng-template>
+    </div>
   </mat-grid-tile>
 </mat-grid-list>

@@ -41,15 +41,15 @@ export class FormRendererComponent implements OnInit {
                 name: FormBuilderComponentConstant.textArea,
                 properties: [],
               },
-              // {
-              //   name: FormBuilderComponentConstant.textArea,
-              // },
-              // {
-              //   name: FormBuilderComponentConstant.textBox,
-              // },
-              // {
-              //   name: FormBuilderComponentConstant.datePicker,
-              // },
+              {
+                name: FormBuilderComponentConstant.textArea,
+              },
+              {
+                name: FormBuilderComponentConstant.textBox,
+              },
+              {
+                name: FormBuilderComponentConstant.datePicker,
+              },
               // {
               //   name: FormBuilderComponentConstant.dropdownlist,
               // },
