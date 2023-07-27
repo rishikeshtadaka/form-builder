@@ -28,5 +28,7 @@ export class TextBoxComponent
     };
   }
 
-  public override setJson(json: any): void {}
+  public override setJson(json: any): void {
+    this.labelName = json['lableName'];
+  }
 }

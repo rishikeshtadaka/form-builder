@@ -53,6 +53,7 @@ export class FormBuilderComponent implements OnInit {
       .get(0)
       ?.createComponent(component.component).instance;
     let baseComponent = createdComponent as BaseFormBuilderComponent;
+    //baseComponent.setJson({lableName:"testing"});//TODO: Remove
     console.log(baseComponent.getComponentId());
     this.formBuilderDomRegistryService.setComponent('', baseComponent);
   }
