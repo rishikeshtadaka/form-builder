@@ -1,5 +1,4 @@
 import { ErrorHandler } from '@angular/core';
-import { LoggerService } from './logger.service';
 
 export class GlobalErrorHandler implements ErrorHandler {
   //TODO

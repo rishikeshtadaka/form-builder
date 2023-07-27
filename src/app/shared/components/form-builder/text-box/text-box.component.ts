@@ -23,7 +23,7 @@ export class TextBoxComponent
 
   public override getJson(): any {
     return {
-      lable: 'new text box label',
+      lable: this.labelName,
       width: 200,
     };
   }

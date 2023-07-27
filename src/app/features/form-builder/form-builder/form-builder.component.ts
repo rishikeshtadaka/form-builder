@@ -5,7 +5,10 @@ import {
   ViewChildren,
   ViewContainerRef,
 } from '@angular/core';
+import { LoggerService } from '@core/services/logger.service';
+import { BaseFormBuilderComponent } from '@shared/components/base/base-form-builder.component';
 import { FormBuilderComponentRegistryService } from '../core/form-builder-component-registry.service';
+import { FormBuilderDomRegistryService } from '../core/form-builder-dom-registry.service';
 import { ToolKitListModel } from '../view-models/tool-kit.model';
 
 @Component({
@@ -22,7 +25,8 @@ export class FormBuilderComponent implements OnInit {
   public toolKitListModel = new ToolKitListModel();
 
   constructor(
-    private formBuilderComponentRegistryService: FormBuilderComponentRegistryService
+    private formBuilderComponentRegistryService: FormBuilderComponentRegistryService,
+    private formBuilderDomRegistryService: FormBuilderDomRegistryService
   ) {
     this.toolKitListModel =
       this.formBuilderComponentRegistryService.getComponents();
@@ -48,10 +52,13 @@ export class FormBuilderComponent implements OnInit {
     let createdComponent = this.formContainer
       .get(0)
       ?.createComponent(component.component).instance;
+    let baseComponent = createdComponent as BaseFormBuilderComponent;
+    console.log(baseComponent.getComponentId());
+    this.formBuilderDomRegistryService.setComponent('', baseComponent);
   }
 
   public save(): void {
-    //this.formContainer.get(0).
-    console.log('Save');
+    let firstComponent = this.formBuilderDomRegistryService.getFirstComponent();
+    console.log('Save', firstComponent.getJson());
   }
 }

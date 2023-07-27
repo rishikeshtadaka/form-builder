@@ -1,21 +1,23 @@
-<mat-form-field>
-  <mat-label>{{ labelName }}</mat-label>
-  <input matInput />
-</mat-form-field>
-<div>
-  <button (click)="displayOptions = true">options</button>
-</div>
+<div [id]="componentId">
+  <mat-form-field>
+    <mat-label>{{ labelName }}</mat-label>
+    <input matInput />
+  </mat-form-field>
+  <div>
+    <button (click)="displayOptions = true">options</button>
+  </div>
 
-<!-- The Modal -->
-<div id="myModal" class="modal" [hidden]="!displayOptions">
-  <!-- Modal content -->
-  <div class="modal-content">
-    <div class="component-options">
-      <mat-form-field>
-        <mat-label>Label Name</mat-label>
-        <input matInput [(ngModel)]="labelName" />
-      </mat-form-field>
+  <!-- The Modal -->
+  <div id="myModal" class="modal" [hidden]="!displayOptions">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="component-options">
+        <mat-form-field>
+          <mat-label>Label Name</mat-label>
+          <input matInput [(ngModel)]="labelName" />
+        </mat-form-field>
+      </div>
+      <button mat-raised-button (click)="displayOptions = false">Ok</button>
     </div>
-    <button mat-raised-button (click)="displayOptions = false">Ok</button>
   </div>
 </div>
