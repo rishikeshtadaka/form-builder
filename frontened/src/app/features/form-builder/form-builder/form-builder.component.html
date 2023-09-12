@@ -1,0 +1,47 @@
+
+<div class="header-form-middle d-flex justify-space-between align-items">
+  <input type="text" placeholder="Form Name" [(ngModel)]="formName" />
+  <img src="./assets/images/header/view-icon.svg" alt="view" title="Preview" (click)="openPreviewDialog()" />
+  <img src="./assets/images/header/save-icon.svg" alt="save" title="Save" (click)="save()" />
+</div>
+
+<div class="d-flex cs-main-component-wrapper">
+  <div class="left-component-wrapper">
+    <cs-component-palette></cs-component-palette>
+  </div>
+
+  <mat-drawer-container class="property-drawer" autosize>
+    <div class="component-details-wrapper height-80vh">
+      <div class="middle-section height-80vh">
+        <div class="section height-80vh">
+          <div class="section-wrapper height-80vh" id="build-area">
+            <div class="component-details-wrapper height-80vh" id="target" (drop)="dropHandler($event)"
+              (dragover)="dragoverHandler($event)">
+              <div class="section-title" (click)="appendSection()"> 
+                <img src="./assets/images/grey-plus-icon.svg" alt="+" />
+                Add Section</div>
+              <div style="min-height:100px">
+                <ng-template componentHost></ng-template>
+              </div>
+              <div class="section-title" (click)="appendSection()"> 
+                <img src="./assets/images/grey-plus-icon.svg" alt="+" />
+                Add Section</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <mat-drawer #drawer class="example-sidenav common-tab right-drawer-wrapper" mode="side" position="end">
+      <div class="d-flex justify-space-between align-items input-settings">
+        Input settings
+        <img src="./assets/images/close-icon.svg" (click)="drawer.close()" />
+      </div>
+      <cs-component-configuration></cs-component-configuration>
+    </mat-drawer>
+    <div class="cs-back-button-wrapper" matTooltip="Back" [matTooltipPosition]="'right'">
+      <button mat-raised-button color="primary" type="button" (click)="goToForms()">
+        <img src="./assets/images/arrow-left.svg" />
+      </button>
+    </div>
+  </mat-drawer-container>
+</div>

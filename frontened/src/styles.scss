@@ -1,0 +1,11 @@
+@import "./styles/abstracts/functions", "./styles/abstracts/mixins",
+"./styles/base/global", "./styles/base/normalise",
+"./styles/material-ui/material-ui", "./styles/variable/colors",
+"./styles/variable/common", "./styles/variable/variables";
+
+
+.mat-auto-option-text {
+  font-size: 12px;
+  line-height: 3em !important;
+  height: 3em !important;
+}

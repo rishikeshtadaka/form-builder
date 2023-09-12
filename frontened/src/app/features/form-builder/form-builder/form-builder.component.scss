@@ -1,0 +1,62 @@
+@import "../../../../styles/variable/colors";
+@import "../../../../styles/abstracts/mixins";
+@import "../../../../styles/variable/variables";
+
+.cs-main-component-wrapper {
+  height: calc(100vh - 56px);
+  .left-component-wrapper {
+    width: 23%;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+    border-right: 1px solid $cs-athens-gray-color;
+    padding: 6px;
+    height: calc(100vh - 46px);
+    overflow: auto;
+    padding-bottom: 10px;
+    background-color: $cs-white-color;
+    @include mq("sm-laptop") {
+      width: 19%;
+    }
+  }
+  h2 {
+    color: $cs-secondary-color;
+    font-size: $cs-base-font;
+    font-weight: $cs-font-weight-bold;
+    line-height: 18px;
+    margin: 0;
+  }
+}
+
+.property-drawer {
+  background: $cs-wild-sand-color;
+  background-image: url(../../../../assets/images/grid.svg);
+  width: 100%;
+  padding: 10px 0 0 20px;
+
+  .mat-drawer {
+    width: 250px;
+    border: 1px solid $cs-tertiary-color;
+    border-right: none;
+    background: $cs-white-color;
+    @include mq("sm-laptop") {
+      width: 383px;
+    }
+  }
+}
+
+.app-container {
+  height: 90%;
+  margin: 0;
+}
+.app-sidenav {
+  width: 230px;
+}
+.app-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.height-80vh {
+  height: calc(100vh - 56px);
+}

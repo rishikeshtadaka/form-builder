@@ -1,0 +1,54 @@
+<div class="form-renderer-row cs-custom-vertical-tab d-flex">
+  <div class="form-renderer-header ">
+    <ng-container *ngIf="requestData?.forms">
+      <div *ngFor="let form of requestData?.forms;let i = index;" class="header-section"
+        (click)="switchTab({ id: form.id, index: i})">
+        <span class="circle" [ngClass]="{'circle-active': i == currentFormIndex}">{{i+1}}</span>
+        <div>
+          <p class="header-title">{{form.name}}</p>
+          <p class="header-desc">{{form.name}}</p>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <div class="form-renderer-content mat-tab-body-wrapper">
+    <!-- header content -->
+    <div class="header-top cs-form-name-stepper d-flex justify-space-between align-items">
+      <h2>{{collection.name}} - {{requestedForm?.name}}</h2>
+      <div *ngIf="!isReadOnly" class="cancel-submit-btn">
+        <button mat-button (click)="saveFormOnly()">Save</button>
+      </div>
+    </div>
+
+    <div class="dynamic-content-wrapper">
+      <!-- dynamic content -->
+      <ng-container componentHost></ng-container>
+
+      <!-- content footer -->
+      <div *ngIf="showNavButtons" class="cs-form-name-stepper footer">
+        <div class="cancel-submit-btn d-flex justify-space-between align-items">
+          <button *ngIf="formNavigation[currentFormIndex-1]" (click)="switchTab(formNavigation[currentFormIndex-1])"
+            mat-button><img src="./assets/images/right-arrow.svg" class="rotate"
+              alt="arrow" />{{formNavigation[currentFormIndex-1].title}}</button>
+
+          <!-- dummy wrapper -->
+          <div *ngIf="!formNavigation[currentFormIndex-1]"></div>
+
+          <button *ngIf="formNavigation[currentFormIndex+1]" (click)="switchTab(formNavigation[currentFormIndex+1])"
+            mat-button>{{formNavigation[currentFormIndex+1].title}}<img
+              *ngIf="formNavigation[currentFormIndex+1].index != 0" src="./assets/images/right-arrow.svg"
+              alt="arrow" /></button>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- <div style="height: 50px;"></div> -->
+  </div>
+</div>
+
+<ng-template #noData>
+  <div class="cs-no-data" *ngIf="loaderService.getNoDataTemplate()">
+    No forms have been assigned
+  </div>
+</ng-template>

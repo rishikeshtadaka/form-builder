@@ -1,0 +1,91 @@
+<!-- <div class="tab-common-wrapper cs-user-collection-list collection-list-wrapper">
+ 
+    <h4 class="collection-list">Requests</h4>
+    <mat-grid-list [cols]="breakpoint" rowHeight="17em" gutterSize="15px" class="box-wrapper">
+      <ng-container *ngIf="collectionsList.length===0">
+        <div class="div">
+          No Data Found!
+        </div>
+      </ng-container>
+      <ng-container *ngIf="collectionsList.length>0">
+      <mat-grid-tile *ngFor="let collection of collectionsList;">
+        <mat-card (click)="openCollection(collection.requestId)">
+          <mat-card-content>
+            <div class="d-flex justify-space-between align-items">
+              <mat-card-title>{{ collection.name }}</mat-card-title>
+            </div>
+            <div class="d-flex justify-space-between align-items">
+              <mat-card-subtitle
+                >Created on : {{ collection.createdAt | date: 'dd/MM/yyyy' }}</mat-card-subtitle
+              >
+            </div>
+            <div class="status"><span>{{ collection.status }}</span></div>
+            <mat-card-subtitle class="medium">Description</mat-card-subtitle>
+            <mat-card-subtitle>{{ collection.description }}</mat-card-subtitle>
+          </mat-card-content>
+          <mat-card-actions class="d-flex align-items">
+          </mat-card-actions>
+        </mat-card>
+      </mat-grid-tile>
+    </ng-container>
+    
+    </mat-grid-list>
+  
+</div> -->
+
+<!-- <mat-drawer-container class="example-container left-drawer form-render-page" autosize>
+  <mat-drawer #drawer1 class="left-nav" mode="side"><cs-navigation></cs-navigation></mat-drawer> -->
+  <!-- <mat-drawer #drawer1 class="left-nav" mode="side">
+    <img class="hamburger-menu-img" mat-button (click)="drawer1.toggle()" src="./assets/images/hamburger-menu.svg"
+      alt="hamburger">
+    <mat-list role="list">
+      <mat-list-item  role="listitem"><a class="nav-link d-flex align-items" href="#dashboard"
+          routerLink="/collections"><img src="./assets/images/dashboard.svg"
+            alt="dashboard" /><span>Dashboard</span></a></mat-list-item>
+      <mat-list-item class="active" role="listitem"><a class="nav-link d-flex align-items" href="#requests" routerLink="/form-renderer/requests"><img
+              src="./assets/images/responces.svg" alt="responces" /><span>Requests</span></a></mat-list-item> -->
+        
+    <!-- </mat-list> -->
+    <!-- <mat-list-item class="active" role="listitem"><a class="nav-link d-flex align-items" href="#dashboard"
+      routerLink="/form-renderer/requests"><img src="./assets/images/dashboard.svg"
+        alt="dashboard" /><span>Dashboard</span></a></mat-list-item> -->
+<!-- </mat-list>
+  </mat-drawer> -->
+
+  <div class="tab-common-wrapper cs-user-collection-list collection-list-wrapper">
+    <div>
+      <h4 class="collection-list" *ngIf="mode=='ADMIN'">Responses</h4>
+      <h4 class="collection-list" *ngIf="mode=='CUSTOMER'">Requests</h4>
+
+      <mat-grid-list *ngIf="collectionsList.length; else noData" [cols]="breakpoint" rowHeight="17em" gutterSize="15px" class="box-wrapper">
+        <mat-grid-tile *ngFor="let collection of collectionsList;">
+          <mat-card (click)="openCollection(collection.requestId)">
+            <mat-card-content>
+              <div class="d-flex justify-space-between align-items">
+                <mat-card-title>{{ collection.name }}</mat-card-title>
+              </div>
+              <div class="d-flex justify-space-between align-items">
+                <mat-card-subtitle>Created on : {{ collection.createdOn | date: 'dd/MM/yyyy' }}</mat-card-subtitle>
+              </div>
+              <div class="status"><span>{{ collection.requestStatus }}</span></div>
+              <mat-card-subtitle class="medium">Description</mat-card-subtitle>
+              <mat-card-subtitle>{{ collection.description }}</mat-card-subtitle>
+            </mat-card-content>
+            <mat-card-actions class="d-flex align-items">
+              <!-- <img src="./assets/images/form/edit.svg" alt="edit" (click)="openCollection(collection.requestId)"/> -->
+              <!-- <img src="./assets/images/form/delete.svg" alt="delete" (click)="deleteCollection(this.collection.id)" /> -->
+            </mat-card-actions>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </div>
+  <!-- </mat-drawer-container> -->
+
+  <ng-template #noData>
+    <div *ngIf="loaderService.getNoDataTemplate()" class="cs-no-data">
+      <span *ngIf="env.mode === 'CUSTOMER'">No requests have been assigned</span>
+      <span *ngIf="env.mode === 'ADMIN'">No responses have been submitted</span>
+    </div>
+  </ng-template>
+  

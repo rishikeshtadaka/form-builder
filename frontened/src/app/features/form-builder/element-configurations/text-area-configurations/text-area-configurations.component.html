@@ -1,0 +1,64 @@
+<div>
+  <div class="cs-input-wrapper">
+    <mat-label class="common-label">Identifier *</mat-label>
+    <mat-form-field appearance="outline">
+      <input matInput placeholder="Please Enter Identifier" [(ngModel)]="configurations.name" required/>
+      <mat-error>Identifier Is Required!</mat-error>
+    </mat-form-field>
+  </div>
+    <div class="cs-input-wrapper">
+      <mat-label class="common-label">Label</mat-label>
+        <mat-form-field appearance="outline">
+          <input matInput [(ngModel)]="configurations.label" placeholder="Please Enter label">
+        </mat-form-field>
+    </div>
+    <div class="cs-input-wrapper">
+      <div class="validation-wrapper d-flex justify-space-between align-items">
+        Hide Label <mat-slide-toggle [(ngModel)]="configurations.isLabelHide"></mat-slide-toggle>
+      </div>
+    </div>
+    <div class="cs-input-wrapper">
+      <mat-label class="common-label">Placeholder</mat-label>
+        <mat-form-field appearance="outline">
+          <input matInput [(ngModel)]="configurations.placeholder" placeholder="Please Enter Placeholder" />
+        </mat-form-field>
+    </div>
+    <div class="cs-input-wrapper">
+      <div class="validation-wrapper d-flex justify-space-between align-items">
+        Required <mat-slide-toggle [(ngModel)]="configurations.required"></mat-slide-toggle>
+      </div>
+    </div>
+    <div class="cs-input-wrapper">
+      <mat-label class="common-label">Character Length</mat-label>
+        <mat-form-field appearance="outline">
+          <input matInput [(ngModel)]="configurations.maximumLength" placeholder="Please Enter Character Length" />
+        </mat-form-field>
+    </div>
+
+    <div class="cs-input-wrapper">
+      <mat-label class="common-label">Tool Tip</mat-label>
+        <mat-form-field appearance="outline">
+          <input matInput [(ngModel)]="configurations.toolTip" placeholder="Please Enter Tool Tip" />
+        </mat-form-field>
+    </div>
+    <div class="cs-input-wrapper">
+      <mat-label class="common-label">Lookup</mat-label>
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="Please Enter URL" [(ngModel)]="configurations.lookup" matTooltip="Enter Valid URL"/>
+      </mat-form-field>
+    </div>
+    <div class="cs-input-wrapper">
+      <mat-label class="common-label">Response Mapping</mat-label>
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="Please Enter Response Mapping" [(ngModel)]="configurations.responseMapping" matTooltip="Enter Valid URL"/>
+      </mat-form-field>
+    </div>
+    <div class="cs-input-wrapper">
+      <mat-label class="common-label">Pattern</mat-label>
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="Please Enter REGEX" [(ngModel)]="configurations.regex"/>
+      </mat-form-field>
+    </div>
+  </div>
+
+  

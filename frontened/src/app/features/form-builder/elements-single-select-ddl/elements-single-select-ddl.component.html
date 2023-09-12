@@ -1,0 +1,15 @@
+<!-- <mat-form-field appearance="outline">
+    <mat-label class="d-flex align-items"> <img src="./assets/images/plus-icon.svg" />Add Element</mat-label>
+    <mat-select [value]="selected" (selectionChange)="emitSelectionChange($event)">
+        <mat-option [value]="item.componentName" *ngFor="let item of elements">{{item.componentDisplayName}}</mat-option>
+    </mat-select>
+</mat-form-field> -->
+
+<div class="cs-input-wrapper">
+    <mat-label class="common-label d-flex align-items"><img src="./assets/images/grey-plus-icon.svg" />Add Element</mat-label>
+    <mat-form-field appearance="outline">
+        <mat-select [value]="selected" (selectionChange)="emitSelectionChange($event)">
+            <mat-option [value]="item.componentName" *ngFor="let item of elements">{{item.componentDisplayName}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+  </div>

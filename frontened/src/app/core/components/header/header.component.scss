@@ -1,0 +1,65 @@
+@import "../../../../styles/variable/colors";
+@import "../../../../styles/variable/variables";
+
+.header-nav.mat-toolbar {
+  padding: 12px;
+  height: auto;
+  background-color: $cs-haiti-color;
+  .nav-list {
+    padding-left: 60px;
+    padding-top: 0;
+    a {
+      font-size: 1.25rem;
+      font-weight: $cs-font-weight-base;
+      line-height: 18px;
+      color: $cs-primary-color;
+      height: auto;
+      padding-right: 24px;
+      text-decoration: none;
+      &.active {
+        color: $cs-secondary-color;
+        font-weight: $cs-font-weight-bold;
+      }
+      &:hover {
+        color: $cs-secondary-color;
+      }
+    }
+  }
+  .right-nav {
+    img {
+      padding-left: 12px;
+    }
+    .name {
+      font-size: $cs-base-font;
+      font-style: normal;
+      font-weight: $cs-font-weight-bold;
+      line-height: 18px;
+      background-color: $cs-blue-lagoon-color;
+      border-radius: 30px;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      margin: 0 12px 0 24px;
+      color: $cs-white-color;
+    }
+    .name-info {
+      h2 {
+        color: $cs-primary-color;
+        font-size: $cs-medium-font;
+        font-weight: $cs-font-weight-bold;
+        line-height: 18px;
+      }
+      p {
+        color: $cs-primary-color;
+        font-size: $cs-medium-font;
+        font-weight: $cs-font-weight-base;
+        line-height: 18px;
+        padding: 5px 0 0;
+        margin-bottom: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+$breakpoints: (
+  "ipad": 768px,
+  "sm-laptop": 1024px,
+  "laptop": 1366px,
+  "desktop": 1920px,
+);
+
+@mixin mq($width, $type: min) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+    @if $type ==max {
+      $width: $width - 1px;
+    }
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+
+@mixin hover {
+  &:not([disabled]):hover {
+    @content;
+  }
+}
+
+//media query mixins demo
+
+/*.left-component-wrapper {
+  @include mq('ipad') {
+    font-size: $cs-medium-font;
+  }
+  @include mq('sm-laptop') {
+    font-size: 20p2remx;
+  }
+  @include mq('desktop') {
+    font-size: 3rem;
+  }
+}*/
+
+// hover mixins demo
+
+/* @include hover {
+  background-color: $cs-black-color;
+}*/

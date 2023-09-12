@@ -1,0 +1,22 @@
+<!-- <mat-drawer #drawer1 class="left-nav" mode="side"> -->
+<img class="hamburger-menu-img" mat-button (click)="toggleDrawer()" src="./assets/images/hamburger-menu.svg"
+  alt="hamburger" />
+<mat-list *ngIf="env.mode === 'ADMIN'" role="list">
+  <mat-list-item role="listitem" matTooltip="Dashboard" [matTooltipPosition]="'right'" routerLinkActive="active"><a class="nav-link d-flex align-items"
+      [routerLink]="['/collections']"><img src="./assets/images/dashboard.svg"
+        alt="dashboard" /><span>Dashboard</span></a></mat-list-item>
+  <mat-list-item role="listitem" matTooltip="Responses" [matTooltipPosition]="'right'" routerLinkActive="active"><a class="nav-link d-flex align-items"
+      [routerLink]="['/form-renderer/responses']"><img src="./assets/images/responces.svg"
+        alt="responses" /><span>Responses</span></a></mat-list-item>
+  <mat-list-item class="last-item" matTooltip="Log Out" [matTooltipPosition]="'right'" role="listitem" (click)="logout()"><a class="nav-link d-flex align-items"><img
+        src="../../../../assets/images/logout.png" alt="responces" /><span>Log Out</span></a></mat-list-item>
+</mat-list>
+
+<mat-list *ngIf="env.mode === 'CUSTOMER'" role="list">
+  <mat-list-item role="listitem"  matTooltip="Requests" [matTooltipPosition]="'right'" routerLinkActive="active"><a class="nav-link d-flex align-items"
+      [routerLink]="['/form-renderer/requests']"><img src="./assets/images/responces.svg"
+        alt="requests" /><span>Requests</span></a></mat-list-item>
+  <mat-list-item class="last-item" matTooltip="Log Out" [matTooltipPosition]="'right'"  role="listitem" (click)="logout()"><a class="nav-link d-flex align-items"><img
+        src="../../../../assets/images/logout.png" alt="responces" /><span>Log Out</span></a></mat-list-item>
+</mat-list>
+<!-- </mat-drawer> -->

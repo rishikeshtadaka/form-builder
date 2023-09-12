@@ -1,0 +1,7 @@
+<mat-grid-tile class="mat-grid-tile-content" (drop)="dropHandler($event)" (dragover)="dragoverHandler($event)">
+      <ng-template componentHost></ng-template>
+      
+      <div class="cs-add-element" *ngIf="!isElement">
+            <cs-elements-single-select-ddl #elementSelection [selected]="selected" (selectionChange)="addElement($event)"></cs-elements-single-select-ddl>
+      </div>
+</mat-grid-tile>

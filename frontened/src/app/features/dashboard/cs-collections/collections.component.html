@@ -1,0 +1,101 @@
+  <div class="tab-common-wrapper" >
+  <div>
+    <mat-card class="create-new-collection-form-wrapper" (click)="showCreateEditCollection(false)">
+      <mat-card-content class="create-new-collection-form d-flex align-items">
+        <div class="">
+          <img src="./assets/images/plus-icon.svg" alt="cs" />
+          <mat-card-title class="title">Create New Collection</mat-card-title>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <h4 class="collection-list">Collections list</h4>
+    
+    <mat-grid-list *ngIf="collectionsList.length; else noData" [cols]="breakpoint" rowHeight="17em" gutterSize="15px" class="box-wrapper">
+
+      <!-- <mat-grid-tile>
+        <mat-card class="create-form-card d-flex align-items">
+          <mat-card-content *ngIf="!showcreateCollection">
+            <div class="">
+              <img
+                src="./assets/images/plus-icon.svg"
+                alt="cs"
+                (click)="showCreateCollection()"
+              />
+              <mat-card-title>Create Collection</mat-card-title>
+            </div>
+          </mat-card-content>
+          <mat-card-content *ngIf="showcreateCollection">
+            <form [formGroup]="collectionForm">
+              <div>
+                <mat-form-field appearance="outline">
+                  <mat-label>Collection Name</mat-label>
+                  <input
+                    matInput
+                    placeholder="Enter collection name"
+                    formControlName="name"
+                    required
+                  />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Collection Description</mat-label>
+                  <input
+                    matInput
+                    placeholder="Enter collection description"
+                    formControlName="description"
+                  />
+                </mat-form-field>
+              </div>
+              <div class="create-collection-btn">
+                <button mat-raised-button color="base" (click)="onCancel()">
+                  Cancel
+                </button>
+                <button mat-raised-button color="primary" type="button" (click)="saveCollection()" [disabled]="collectionForm.invalid">
+                  Save
+                </button>
+              </div>
+            </form>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile> -->
+      <!-- (click)="openCollection(collection.id)" -->
+      <mat-grid-tile *ngFor="let collection of collectionsList;">
+        <!-- <mat-card (click)="openCollection(collection.id)"> -->
+          <mat-card>
+          <mat-card-content (click)="openCollection(collection.id)">
+            <div class="d-flex justify-space-between align-items">
+              <mat-card-title>{{ collection.name }}</mat-card-title>
+              <!-- PERMANENTLY COMMENTED <img src="./assets/images/elements/drag.svg" alt="cs" /> -->
+            </div>
+            <div class="d-flex justify-space-between align-items">
+              <mat-card-subtitle
+                >Created on : {{ collection.createdAt | date: 'dd/MM/yyyy' }}</mat-card-subtitle
+              >
+             
+            </div>
+            <div class="status"><span>{{ collection.status }}</span></div>
+            <mat-card-subtitle class="medium">Description</mat-card-subtitle>
+            <mat-card-subtitle>
+              <div appEllipsis>{{ collection.description }}</div>
+            </mat-card-subtitle>
+            <mat-card-subtitle class="medium">Total Forms</mat-card-subtitle>
+            <mat-card-subtitle *ngIf="collection.forms && collection.forms.length === 0">0</mat-card-subtitle>
+            <mat-card-subtitle *ngIf="collection.forms && collection.forms.length> 0">{{collection.forms.length}}</mat-card-subtitle>
+          </mat-card-content>
+          <mat-card-actions class="d-flex align-items">
+            <img src="./assets/images/form/share.svg" matTooltip="Share" *ngIf="collection.forms && collection.forms.length > 0" alt="share" (click)="shareCollection(this.collection)"/>
+            <!-- PERMANENTLY COMMENTED  <img src="./assets/images/form/download.svg" alt="download" />
+            <img src="./assets/images/form/copy.svg" matTooltip="Copy"alt="copy" />
+            <img src="./assets/images/form/transfer.svg" matTooltip="Transfer" alt="transfer" /> PERMANENTLY COMMENTED  -->
+            <!-- <img src="./assets/images/form/edit.svg" alt="edit" matTooltip="Edit" (click)="showCreateEditCollection(true, collection)"/> -->
+            <img src="./assets/images/form/delete.svg" alt="delete" matTooltip="Delete" (click)="showDeleteCollection(this.collection)" />
+          </mat-card-actions>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>
+<ng-template #noData>
+  <div class="cs-no-data" *ngIf="loaderService.getNoDataTemplate()">
+    No collections have been created
+  </div>
+</ng-template>

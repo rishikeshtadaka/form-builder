@@ -1,0 +1,22 @@
+<div class="d-flex justify-space-between align-items input-settings">
+  Share Collection
+  <img src="./assets/images/close-icon.svg" alt="close" [mat-dialog-close]="true" />
+</div>
+<mat-dialog-content class="mat-typography cs-rules-popup">
+  <form [formGroup]="userForm">
+    <div class="cs-input-wrapper">
+      <mat-label class="common-label">Select User</mat-label>
+      <mat-form-field appearance="outline">
+        <mat-select formControlName="user" multiple>
+          <mat-option *ngFor="let user of userList" [value]="user.id">{{user.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="center" class="popup-btn">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial color="primary" (click)="saveShareUserList()">
+    Save
+  </button>
+</mat-dialog-actions>

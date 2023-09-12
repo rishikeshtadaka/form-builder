@@ -1,0 +1,24 @@
+<div class="component-details-wrapper">
+<div class="middle-section" >
+      <div class="section" >
+    <div class="section-wrapper" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="15px">      
+      <mat-card fxFlex="33">
+        <div class="d-flex justify-space-between align-items section-wrap">
+          <div class="section-name">{{configurations.label}}</div>
+        </div>
+          <div
+          
+            (drop)="dropHandler($event)"
+            (dragover)="dragoverHandler($event)"
+            style="width:100%;min-height:200px;padding: 10px 0 40px"
+          >
+            <ng-template componentHost></ng-template> 
+            <div class="cs-add-element">
+              <cs-elements-single-select-ddl #elementSelection [selected]="selected" (selectionChange)="addElement($event)"></cs-elements-single-select-ddl>
+            </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>
+</div>

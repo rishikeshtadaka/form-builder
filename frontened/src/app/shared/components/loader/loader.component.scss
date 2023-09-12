@@ -1,0 +1,65 @@
+@import "../../../../styles/variable/colors";
+
+.loader {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $cs-black-color;
+  transition: 1s ease;
+  height: 100vh;
+  color: $cs-white-color;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0.7;
+  z-index: 999999;
+  h1 {
+    font-size: 1.5rem;
+  }
+  img {
+    width: 90px;
+  }
+  .ring {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .ring::before {
+    content: "";
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    animation: ring 2s linear infinite;
+  }
+  @keyframes ring {
+    0% {
+      transform: rotate(0deg);
+      box-shadow: 0px 5px 5px $cs-ebony-clay-color;
+    }
+    25% {
+      transform: rotate(90deg);
+      box-shadow: 0px 5px 5px $cs-haiti-color;
+    }
+    50% {
+      transform: rotate(180deg);
+      box-shadow: 0px 5px 5px $cs-secondary-color;
+    }
+    75% {
+      transform: rotate(270deg);
+      box-shadow: 0px 5px 5px $cs-primary-color;
+    }
+    100% {
+      transform: rotate(360deg);
+      box-shadow: 0px 5px 5px $cs-torch-red-color;
+    }
+  }
+}

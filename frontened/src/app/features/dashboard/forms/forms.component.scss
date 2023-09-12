@@ -1,0 +1,53 @@
+.dashboard-card {
+    position: absolute;
+    top: 0px;
+    left:10px;
+    right: 0px;
+    bottom: 0px;
+  }
+  
+  .more-button {
+    float: right;
+    font-size: 2em;
+  }
+  
+  .cdk-drop-list {
+    height: 100%;
+    width: 100%;
+  }
+  
+  .cdk-drag-preview {
+    box-sizing: border-box;
+    opacity: 0.5;
+  }
+  
+  .cdk-drag-animating {
+    transition: unset;
+  }
+  
+  .cdk-drag-placeholder {
+    display: block;
+  }
+
+  a{
+    cursor: pointer;
+  }
+
+  .create-form-card {
+    justify-content: center;
+    flex-direction: row;
+    .mat-card-content {
+      img {
+        display: block;
+        margin: 0 auto;
+        width: 30px;
+        margin-bottom: 10px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .collection-list {
+    text-transform: uppercase;
+    margin-top: 30px;
+  }

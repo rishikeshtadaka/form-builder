@@ -1,0 +1,156 @@
+<div class="cs-popup-common">
+  <div class="d-flex justify-space-between align-items input-settings">
+    Visibility Rules
+
+    <img
+      src="./assets/images/close-icon.svg"
+      alt="close"
+      [mat-dialog-close]="true"
+    />
+  </div>
+
+  <mat-dialog-content class="mat-typography cs-rules-popup">
+    <div class="cs-input-wrapper">
+      <mat-label class="common-label">Title *</mat-label>
+
+      <mat-form-field appearance="outline">
+        <input
+          matInput
+          placeholder="Please Enter Title"
+          [(ngModel)]="visibilityObject.name"
+          (input)="titleChanged()"
+        />
+      </mat-form-field>
+      <span *ngIf="!visibilityObject.isNameValid" class="text-danger"
+        >Title Is Required</span
+      >
+    </div>
+
+    <div class="cs-input-wrapper">
+      <mat-label class="common-label">Description</mat-label>
+
+      <mat-form-field appearance="outline">
+        <input
+          matInput
+          placeholder="Please Enter Description"
+          [(ngModel)]="visibilityObject.description"
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="cs-rule-wrapper">
+      <mat-card>
+        <mat-card-title>Actions *</mat-card-title>
+
+        <mat-card-subtitle>Select an action when rules pass.</mat-card-subtitle>
+
+        <div class="d-flex align-items justify-space-between">
+          <div class="cs-input-wrapper">
+            <mat-label class="common-label">Do *</mat-label>
+
+            <mat-form-field appearance="outline">
+              <mat-select
+                [(ngModel)]="visibilityObject.action"
+                required
+                placeholder="Select Do"
+                (selectionChange)="actionSelectionChanged()"
+              >
+                <mat-option value="show">Show</mat-option>
+
+                <mat-option value="hide">Hide</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <span *ngIf="!visibilityObject.isActionValid" class="text-danger"
+              >Action Is Required</span
+            >
+          </div>
+
+          <div class="cs-input-wrapper last">
+            <mat-label class="common-label">Field *</mat-label>
+
+            <mat-form-field appearance="outline">
+              <mat-select
+                [(ngModel)]="visibilityObject.elementId"
+                required
+                placeholder="Select Field"
+                (selectionChange)="fieldSelectionChanged()"
+              >
+                <mat-option [value]="selectedVisibleElementId">{{
+                  selectedVisibleElementName
+                }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <span *ngIf="!visibilityObject.isElementIdValid" class="text-danger"
+              >Field Name Is Required</span
+            >
+          </div>
+        </div>
+      </mat-card>
+    </div>
+
+    <div class="cs-rule-wrapper">
+      <div>
+        <div
+          class="cs-rule-wrapper"
+          *ngFor="let expression of expressions; let i = index"
+        >
+          <div class="cs-nested-conditions-and-or-loop">
+            <div class="cs-input-wrapper" *ngIf="i > 0">
+              <mat-form-field appearance="outline">
+                <mat-select [(ngModel)]="expression.condition" placeholder="Select Condition" (selectionChange)="parentConditionSelectionChanged(i)">
+                  <!-- (selectionChange)="parentConditionSelectionChanged(i)" -->
+                  <mat-option value="AND">AND</mat-option>
+                  <mat-option value="OR">OR</mat-option>
+                </mat-select>
+              </mat-form-field>
+           <span *ngIf="!expression.isConnectorConditionValid" class="text-danger text-danger-with-condition">Condition Is Required</span>
+            </div>
+
+            <hr *ngIf="i > 0"/>
+          </div>
+
+          <div class="visibility-wrapper">
+            <cs-visibility-rule-expression
+              [expression]="expression"
+              [componentsName]="componentsName"
+              [componentIds]="componentIds"
+              [parentIndex]="i"
+              [hide]="true"
+              [isEdit]="isEdit"
+            ></cs-visibility-rule-expression>
+          </div>
+          <div class="plus-minus-arrow d-flex">
+            <img
+              *ngIf="i > 0"
+              src="./assets/images/minus.svg"
+              alt="minus"
+              (click)="removeExpression(i)"
+              matTooltip="Delete Parent"
+            />
+
+            <img
+              src="./assets/images/plus.svg"
+              alt="plus"
+              (click)="addExpression(i)"
+              matTooltip="Add Parent"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="center" class="popup-btn">
+    <button mat-button mat-dialog-close>Cancel</button>
+
+    <button
+      mat-button
+      cdkFocusInitial
+      color="primary"
+      (click)="saveVisibility()"
+      type="submit"
+    >
+      Save
+    </button>
+  </mat-dialog-actions>
+</div>

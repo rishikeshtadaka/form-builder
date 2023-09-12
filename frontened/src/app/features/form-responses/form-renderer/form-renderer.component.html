@@ -1,0 +1,72 @@
+<div class="header-content d-flex align-items">
+  <div class="logo">
+    <a class="nav-link" href="#home" routerLink="/"><img src="./assets/images/header/cs-logo.svg" alt="logo" /></a>
+  </div>
+  <div class="header-form-middle d-flex justify-space-between align-items">
+    <span style="color: white;">{{collection.name}}</span>
+  </div>
+</div>
+
+<mat-drawer-container class="example-container left-drawer form-render-page" autosize>
+  <mat-drawer #drawer1 class="left-nav" mode="side"><cs-navigation></cs-navigation></mat-drawer>
+  <!-- <mat-drawer #drawer1 class="left-nav" mode="side">
+    <img class="hamburger-menu-img" mat-button (click)="drawer1.toggle()" src="./assets/images/hamburger-menu.svg"
+      alt="hamburger" />
+    <mat-list role="list">
+      <mat-list-item role="listitem"><a class="nav-link d-flex align-items" href="#dashboard"
+          routerLink="/collections"><img src="./assets/images/dashboard.svg"
+            alt="dashboard" /><span>Dashboard</span></a></mat-list-item>
+      <mat-list-item class="active" role="listitem"><a class="nav-link d-flex align-items" href="#requests"
+          routerLink="/form-renderer/requests"><img src="./assets/images/responces.svg"
+            alt="responces" /><span>Requests</span></a></mat-list-item>
+    </mat-list>
+  </mat-drawer> -->
+  <!-- <h1>Form Renderer</h1> -->
+  <!-- <div class="cs-form-renderer-request"> -->
+    <!-- <h1>{{formJsonModel.name}}</h1> -->
+    <!-- <ng-template componentHost></ng-template> -->
+    <!-- <div class="mat-step-btn">
+      <button mat-raised-button color="primary" (click)="onSave()">Submit</button>
+    </div> -->
+  <!-- </div> -->
+  <!-- <button class="btn btn-primary" (click)="onSave()">Save</button> -->
+  <section class="form-renderer-section">
+    <mat-stepper *ngIf="requestData?.forms?.length;else noData" [linear]="isLinear" [selectedIndex]="currentFormIndex" #stepper>
+      <mat-step *ngFor="let form of requestData?.forms; let i = index">
+        <ng-template matStepLabel>{{ form.name }}</ng-template>
+        <!-- <button mat-raised-button color="primary">Submit</button>
+        <button
+          mat-button
+          matStepperNext
+          (click)="onSave(requestData?.forms[i + 1])"
+        >
+          Next
+        </button> -->
+
+      </mat-step>
+    </mat-stepper>
+    <ng-template componentHost></ng-template>
+    <div #formRenderer>
+
+    </div>
+    <!-- <cs-new-form-renderer *ngIf="requestedForm" [formJSON]="requestedForm"></cs-new-form-renderer> -->
+
+    <!-- <div class="mat-step-btn"></div> -->
+    <div *ngIf="showNavButtons" class="mat-step-btn">
+      <!-- *ngIf="requestData?.forms.length-1===i" -->
+      <button mat-button matStepperNext class="back-btn" *ngIf="currentFormIndex != 0 && requestData?.forms.length > 1"
+        (click)="jumpTo({ selectedIndex: currentFormIndex-1 })">Back</button>
+      <button  mat-button matStepperNext *ngIf="requestData?.forms.length > 1 && requestData?.forms.length-1 > currentFormIndex"
+        (click)="jumpTo({ selectedIndex: currentFormIndex+1, isSaved: true })">
+        Next
+      </button>
+      <button mat-raised-button color="primary" *ngIf="requestData?.forms.length-1==currentFormIndex && !isReadOnly"
+        (click)="jumpTo({ selectedIndex: currentFormIndex-1, isSubmit: true })">Submit</button>
+    </div>
+  </section>
+</mat-drawer-container>
+<ng-template #noData>
+  <div *ngIf="loaderService.getNoDataTemplate()">
+    No Data Found!
+  </div>
+</ng-template>

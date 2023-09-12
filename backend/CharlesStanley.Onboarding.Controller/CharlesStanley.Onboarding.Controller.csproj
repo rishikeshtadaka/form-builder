@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CharlesStanley.Onboarding.Model\CharlesStanley.Onboarding.Model.csproj" />
+    <ProjectReference Include="..\CharlesStanley.Onboarding.Service\CharlesStanley.Onboarding.Service.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNetCore.Mvc">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\6.0.20\ref\net6.0\Microsoft.AspNetCore.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

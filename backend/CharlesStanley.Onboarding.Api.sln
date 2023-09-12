@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CharlesStanley.Onboarding.Api", "CharlesStanley.Onboarding.Api\CharlesStanley.Onboarding.Api.csproj", "{714109B2-62C6-4C2D-9BE6-E929B13ADA00}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4C1758F3-5E9E-466F-B903-AE4B94375628} = {4C1758F3-5E9E-466F-B903-AE4B94375628}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CharlesStanley.Onboarding.Service", "CharlesStanley.Onboarding.Service\CharlesStanley.Onboarding.Service.csproj", "{4C1758F3-5E9E-466F-B903-AE4B94375628}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CharlesStanley.Onboarding.Domain", "CharlesStanley.Onboarding.Domain\CharlesStanley.Onboarding.Domain.csproj", "{448815F9-FBE8-4F55-83C4-E29B85299331}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CharlesStanley.Onboarding.Model", "CharlesStanley.Onboarding.Model\CharlesStanley.Onboarding.Model.csproj", "{1AEB142E-40AF-45B7-85FB-3C9F3E75CB43}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CharlesStanley.Onboarding.Common", "CharlesStanley.Onboarding.Common\CharlesStanley.Onboarding.Common.csproj", "{ED41A71E-DF71-450D-94A8-17775C73E771}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CharlesStanley.Onboarding.Repository", "CharlesStanley.Onboarding.Repository\CharlesStanley.Onboarding.Repository.csproj", "{81239BFC-CDD5-4B30-AB1F-35899E1AEB8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharlesStanley.Onboarding.Controller", "CharlesStanley.Onboarding.Controller\CharlesStanley.Onboarding.Controller.csproj", "{97471775-4FAC-4C90-ACFE-0276C808895A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{714109B2-62C6-4C2D-9BE6-E929B13ADA00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{714109B2-62C6-4C2D-9BE6-E929B13ADA00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{714109B2-62C6-4C2D-9BE6-E929B13ADA00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{714109B2-62C6-4C2D-9BE6-E929B13ADA00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C1758F3-5E9E-466F-B903-AE4B94375628}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C1758F3-5E9E-466F-B903-AE4B94375628}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C1758F3-5E9E-466F-B903-AE4B94375628}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C1758F3-5E9E-466F-B903-AE4B94375628}.Release|Any CPU.Build.0 = Release|Any CPU
+		{448815F9-FBE8-4F55-83C4-E29B85299331}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{448815F9-FBE8-4F55-83C4-E29B85299331}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{448815F9-FBE8-4F55-83C4-E29B85299331}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{448815F9-FBE8-4F55-83C4-E29B85299331}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AEB142E-40AF-45B7-85FB-3C9F3E75CB43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AEB142E-40AF-45B7-85FB-3C9F3E75CB43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AEB142E-40AF-45B7-85FB-3C9F3E75CB43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AEB142E-40AF-45B7-85FB-3C9F3E75CB43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED41A71E-DF71-450D-94A8-17775C73E771}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED41A71E-DF71-450D-94A8-17775C73E771}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED41A71E-DF71-450D-94A8-17775C73E771}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED41A71E-DF71-450D-94A8-17775C73E771}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81239BFC-CDD5-4B30-AB1F-35899E1AEB8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81239BFC-CDD5-4B30-AB1F-35899E1AEB8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81239BFC-CDD5-4B30-AB1F-35899E1AEB8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81239BFC-CDD5-4B30-AB1F-35899E1AEB8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97471775-4FAC-4C90-ACFE-0276C808895A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97471775-4FAC-4C90-ACFE-0276C808895A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97471775-4FAC-4C90-ACFE-0276C808895A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97471775-4FAC-4C90-ACFE-0276C808895A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8BF2CA7A-245B-4E37-B1E7-1C3D58738340}
+	EndGlobalSection
+EndGlobal

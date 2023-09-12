@@ -1,0 +1,71 @@
+<div class="cs-input-wrapper">
+  <mat-label class="common-label">Identifier *</mat-label>
+  <mat-form-field appearance="outline">
+    <input
+      matInput
+      placeholder="Please Enter Identifier"
+      [(ngModel)]="configurations.name"
+      required
+    />
+    <mat-error>Identifier Is Required!</mat-error>
+  </mat-form-field>
+</div>
+<div class="cs-input-wrapper">
+  <mat-label class="common-label">Label</mat-label>
+  <mat-form-field appearance="outline">
+    <input
+      matInput
+      placeholder="Please Enter Label"
+      [(ngModel)]="configurations.label"
+    />
+  </mat-form-field>
+</div>
+<div class="cs-input-wrapper">
+  <div class="validation-wrapper d-flex justify-space-between align-items">
+    Hide Label <mat-slide-toggle [(ngModel)]="configurations.isLabelHide"></mat-slide-toggle>
+  </div>
+</div>
+<div class="cs-input-wrapper">
+  <div class="validation-wrapper d-flex justify-space-between align-items">
+    Required
+    <mat-slide-toggle [(ngModel)]="configurations.required"></mat-slide-toggle>
+  </div>
+</div>
+<div class="cs-input-wrapper">
+  <mat-label class="common-label">Value</mat-label>
+  <mat-form-field appearance="outline">
+    <mat-select>
+      <ng-container *ngFor="let item of configurations.items">
+        <mat-option *ngIf="item" [value]="item">
+          {{ item }}
+        </mat-option>
+      </ng-container>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div>
+  <div
+    *ngFor="let item of configurations.items; let i = index; trackBy: trackByFn"
+  >
+    <div class="add-item-wrapper d-flex align-items">
+      <mat-form-field appearance="outline">
+        <input
+          [(ngModel)]="configurations.items[i]"
+          matInput
+          type="text"
+          placeholder="Add Item"
+        />
+      </mat-form-field>
+      <img
+        *ngIf="configurations.items.length > 1"
+        src="../../../../assets/images/delete-icon.svg"
+        (click)="removeListItem(i)"
+        alt="delete"
+      />
+    </div>
+  </div>
+</div>
+<div class="add-list">
+  <img src="./assets/images/plus-icon.svg" (click)="addListItem()" alt="add" />
+</div>

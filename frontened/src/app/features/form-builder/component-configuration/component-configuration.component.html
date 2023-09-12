@@ -1,0 +1,107 @@
+<div>
+  <mat-tab-group dynamicHeight>
+    <mat-tab label="General">
+      <div class="example-small-box mat-elevation-z4">
+        <div class="drawer-section">
+          <ng-template componentHost></ng-template>
+          <div class="drawer-button-wrapper" fxLayoutAlign="center center">
+            <button mat-raised-button color="primary" (click)="applyStyles()">Apply</button>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Configuration">
+      <div class="example-large-box mat-elevation-z4">
+        <div class="drawer-section">
+          
+          <!-- <div class="validation-wrapper d-flex justify-space-between align-items">
+            Input Mask <mat-slide-toggle></mat-slide-toggle>
+          </div>
+          
+          <div class="cs-input-wrapper">
+            <mat-label class="common-label">Pattern</mat-label>
+            <mat-form-field appearance="outline">
+              <input matInput placeholder="Please Enter Pattern">
+            </mat-form-field>
+          </div> -->
+          <!-- <mat-divider></mat-divider> -->
+          <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Visibility Rules
+              </mat-panel-title>
+              <mat-panel-description>
+                Allow you to define what element can be shown or hidden
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="validation-wrapper">
+              <button mat-raised-button color="primary" (click)="openVisibilityDialog()">
+                <mat-icon>add</mat-icon>
+                Visibility Rules
+              </button>
+              <div class="icons d-flex align-items rules-wrapper" *ngFor="let vo of visibilityObject;">
+                  <div class="label">{{ vo?.name }}</div>
+                <div class="icons d-flex align-items">
+                  <img src="./assets/images/form/edit.svg" alt="Edit" (click)="openVisibilityEditDialog(vo.visibilityRuleId)">
+                  <img src="./assets/images/form/delete.svg" alt="Delete" (click)="deleteVisibility(vo.visibilityRuleId)"/>
+                </div>
+              </div>
+            </div>
+          </mat-expansion-panel>
+          <mat-divider></mat-divider>
+          <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Validation Rules
+              </mat-panel-title>
+              <mat-panel-description>
+                Message will be displayed when the rules have passed or failed
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="validation-wrapper">
+              <button mat-raised-button color="primary" (click)="openValidationDialog()">
+                <mat-icon>add</mat-icon>
+                Validation Rules
+              </button>
+              <div class="icons d-flex align-items rules-wrapper" *ngFor="let valObj of validationObject">
+                <div class="label">{{ valObj?.name }}</div>
+                <div class="icons d-flex align-items">
+                  <img src="./assets/images/form/edit.svg" alt="Edit" (click)="openValidationEditDialog(valObj.validationRuleId)" />
+                  <img src="./assets/images/form/delete.svg" alt="Delete" (click)="deleteValidation(valObj.validationRuleId)" />
+                </div>
+              </div>
+            </div>
+          </mat-expansion-panel>
+          <mat-divider></mat-divider>
+          <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Computation Rules
+              </mat-panel-title>
+              <mat-panel-description>
+                Derive value of a field based on multiple fields
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="validation-wrapper">
+              <button mat-raised-button color="primary" (click)="openComputationDialog()">
+                <mat-icon>add</mat-icon>
+                Computation Rules
+              </button>
+              <div class="icons d-flex align-items rules-wrapper" *ngFor="let comObj of computationObject">
+                <div class="label">{{ comObj?.name }}</div>
+                <div class="icons d-flex align-items">
+                  <img src="./assets/images/form/edit.svg" alt="Edit" (click)="openComputationEditDialog(comObj.computationRuleId)" />
+                  <img src="./assets/images/form/delete.svg" alt="Delete" (click)="deleteComputation(comObj.computationRuleId)" />
+                </div>
+              </div>
+            </div>
+          </mat-expansion-panel>
+          <div class="drawer-button-wrapper" fxLayoutAlign="center center">
+            <button mat-raised-button color="primary" (click)="closeConfiguration()">Save</button>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

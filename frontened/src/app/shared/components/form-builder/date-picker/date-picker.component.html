@@ -1,0 +1,109 @@
+<div class="date-picker-main-wrapper">
+  <div class="section-wrapper">
+    <div class="section-title">Section 1</div>
+    <mat-card>
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <span>Setting</span>
+        </button>
+        <button mat-menu-item>
+          <span>Delete</span>
+        </button>
+      </mat-menu>
+    
+  
+  <mat-form-field>
+    <mat-label>{{ labelName }}</mat-label>
+    <input matInput [matDatepicker]="picker" placeholder="{{ placeholderText }}" [formControl]="date"/>
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <div>
+    <button mat-raised-button (click)="displayOptions = true">
+      Properties
+    </button>
+  </div>
+</mat-card>
+</div>
+</div>
+
+
+<!-- <div id="myModal" class="modal" [hidden]="!displayOptions">
+  <div class="modal-content">
+    <div class="component-options">
+      <mat-form-field>
+        <mat-label>Label Name</mat-label>
+        <input matInput [(ngModel)]="labelName" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Placeholder</mat-label>
+        <input matInput [(ngModel)]="placeholderText" />
+      </mat-form-field>
+    </div>
+    <button mat-raised-button (click)="displayOptions = false">Ok</button>
+  </div>
+</div> -->
+
+
+<div class="properties-section">
+  <div class="d-flex justify-space-between align-items setting-section">
+    <h2>Settings</h2>
+    <button mat-flat-button>Cancel</button>
+  </div>
+  <div class="accordion-wrapper">
+    <mat-accordion class="example-headers-align" multi>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Section 1 Properties
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Title</mat-label>
+          <input matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Description</mat-label>
+          <input matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Section Position</mat-label>
+          <mat-select>
+            <mat-option value="one">First option</mat-option>
+            <mat-option value="two">Second option</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Styling
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div>abc</div>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            validation
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="validation-wrapper">
+          <mat-slide-toggle>Required</mat-slide-toggle>
+          <mat-slide-toggle>Hide Section</mat-slide-toggle>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>

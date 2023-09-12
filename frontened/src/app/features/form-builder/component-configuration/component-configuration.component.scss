@@ -1,0 +1,22 @@
+.rules-wrapper {
+  border: 1px solid #D7DBF0;
+  border-radius: 5px;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 10px 0;
+  .form-field {
+    width: 100%;
+  }
+  .icons {
+    padding-left: 5px;
+    cursor: pointer;
+    img {
+      cursor: pointer;
+      margin: 0 5px;
+      opacity: 0.7;
+    }
+  }
+  .mat-form-field-wrapper  {
+    padding: 0;
+  }
+}

@@ -1,0 +1,39 @@
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Styling
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-form-field>
+      <mat-label>Width</mat-label>
+      <input matInput [(ngModel)]="styleConfiguration.width" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Font Size</mat-label>
+      <input matInput [(ngModel)]="styleConfiguration.fontSize" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Font Family</mat-label>
+      <mat-select [(ngModel)]="styleConfiguration.fontFamily">
+        <mat-option *ngFor="let type of fontFamilyTypes" [value]="type.value">
+          {{ type.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Text Align</mat-label>
+      <mat-select [(ngModel)]="styleConfiguration.alignText">
+        <mat-option *ngFor="let type of alignTextTypes" [value]="type.value">
+          {{ type.value }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Font-Style</mat-label>
+      <mat-select [(ngModel)]="styleConfiguration.fontStyle">
+        <mat-option *ngFor="let type of fontStyleTypes" [value]="type.value">
+          {{ type.value }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-expansion-panel>

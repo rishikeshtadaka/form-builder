@@ -1,0 +1,6 @@
+
+  <mat-grid-list [cols]="configurations.numberOfColumns" rowHeight="150px" class="cs-custom-grid-wrapper">
+    <mat-grid-tile *ngFor="let element of elements" class="cs-custom-grid-column">
+      <cs-column [element]="element"></cs-column>
+    </mat-grid-tile>
+  </mat-grid-list>

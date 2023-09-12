@@ -1,0 +1,16 @@
+<cs-header>
+
+</cs-header>
+<div>
+    <mat-drawer-container class="example-container left-drawer dashboard-page" autosize>
+        <mat-drawer style="display:block;" #drawer1 class="left-nav" mode="side">
+            <cs-navigation></cs-navigation>
+        </mat-drawer>
+        <section class="home-forms-section">           
+            <router-outlet></router-outlet>
+        </section>
+      </mat-drawer-container>
+</div>
+<cs-footer>
+
+</cs-footer>

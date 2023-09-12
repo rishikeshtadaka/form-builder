@@ -1,0 +1,72 @@
+<div class="tab-common-wrapper">
+  <div class="example-large-box ">
+    <h4><a (click)="goBack()">Collections</a><span> > {{ breadcrumbCollection }}</span></h4>
+   
+    <mat-grid-list [cols]="breakpoint" rowHeight="17em" gutterSize="15px" class="box-wrapper">
+      <mat-grid-tile>
+        <mat-card class="create-form-card d-flex align-items" (click)="navigateToNewFormBuilder()">
+          <mat-card-content>
+            <div class="">
+              <img src="./assets/images/plus-icon.svg" alt="cs"/>
+              <mat-card-title>Create Form</mat-card-title>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <h4 class="collection-list">Form list</h4>
+    <div class="cs-back-button-wrapper" matTooltip="Back" [matTooltipPosition]="'right'">
+      <button mat-raised-button color="primary" type="button" (click)="goBack()">
+        <img src="./assets/images/arrow-left.svg" />
+      </button>
+    </div>
+
+    <mat-grid-list *ngIf="formList.length;else noData" [cols]="breakpoint" rowHeight="17em" gutterSize="15px" class="box-wrapper">
+        <mat-grid-tile
+          *ngFor="let form of formList; let i = index"
+          cdkDropList
+          [cdkDropListConnectedTo]="forms"
+          [cdkDropListData]="i"
+        >
+          <mat-card
+            cdkDrag
+            (cdkDragEntered)="entered($event)"
+            [cdkDragData]="i"
+            class="dashboard-card"
+            (click)="navigateToFormBuilder(form.containerId,form.id)"
+          >
+            <mat-card-content (click)="navigateToFormBuilder(form.containerId,form.id)">
+              <div class="d-flex justify-space-between align-items">
+                <mat-card-title>{{ form.name }}</mat-card-title>
+                <!-- <img src="./assets/images/elements/drag.svg" alt="cs" /> -->
+              </div>
+              <div class="d-flex justify-space-between align-items">
+                <mat-card-subtitle
+                  >Created on : {{ form.createdAt | date: 'dd/MM/yyyy' }}</mat-card-subtitle
+                >
+                <!-- <mat-card-subtitle
+                  >Created by : {{ form.createdBy }}</mat-card-subtitle
+                > -->
+            </div>
+            <!-- <div class="status"><span>published</span></div>
+              <mat-card-subtitle class="medium">Description</mat-card-subtitle>
+              <mat-card-subtitle>{{ form.description }}</mat-card-subtitle> -->
+          </mat-card-content>
+          <mat-card-actions class="d-flex align-items">
+            <!-- <img src="./assets/images/form/download.svg" matTooltip="Download" alt="download" />
+              <img src="./assets/images/form/share.svg" matTooltip="Share" alt="share" />
+              <img src="./assets/images/form/copy.svg" matTooltip="Copy" alt="copy" />
+              <img src="./assets/images/form/transfer.svg" matTooltip="Transfer" alt="transfer" /> -->
+              <img src="./assets/images/form/edit.svg" matTooltip="Edit" alt="edit" />
+              <img src="./assets/images/form/delete.svg" matTooltip="Delete" alt="delete" (click)="showDeleteForm(form,$event)"/>
+            </mat-card-actions>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </div>
+  <ng-template #noData>
+    <div class="cs-no-data" *ngIf="loaderService.getNoDataTemplate()">
+      No forms have been created
+    </div>
+  </ng-template>

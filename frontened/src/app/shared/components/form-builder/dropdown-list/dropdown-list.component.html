@@ -1,0 +1,23 @@
+<div class="cs-input-wrapper" data-id ="{{id}}_field" [ngStyle]="visible == false ? {'display': 'none'}: {}">
+  <mat-label *ngIf="!configurations.isLabelHide" class="common-label" >{{ configurations.label }}
+    <!-- <span *ngIf="configurations.required" style="color: red;">*</span> -->
+  </mat-label>  <mat-form-field appearance="outline">
+    <mat-select 
+    [(ngModel)]="value" 
+    name="{{ configurations.name }}" 
+    disabled="{{configurations.disable}}"
+    (selectionChange)="selectionChange($event)" 
+    [errorStateMatcher]="matcher" 
+    >
+      <ng-container *ngFor="let item of configurations.items">
+        <mat-option  *ngIf="item" [value]="item">
+          {{ item }}
+        </mat-option>
+      </ng-container>
+    </mat-select>
+    <mat-icon *ngIf="value && valid" class="tickMark">check</mat-icon>
+    <span *ngIf="configurations.required" class="text-danger text-danger-astrisk">*</span>
+  </mat-form-field>
+  <span *ngIf="error !== ''" class="text-danger"><strong>{{error}}</strong></span>
+</div>
+<!-- [disabled]="configurations.disable" -->

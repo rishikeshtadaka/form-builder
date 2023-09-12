@@ -1,0 +1,46 @@
+@import "../../../../../styles/variable/colors";
+@import "../../../../../styles/variable/variables";
+.cs-rules-popup {
+  margin: 12px;
+  padding: 0;
+  padding-left: 0;
+  .cs-input-wrapper {
+    .delete-popup {
+      text-transform: initial;
+      font-size: 1rem;
+      font-weight: $cs-font-weight-base;
+    }
+  }
+}
+.input-settings {
+  font-size: $cs-large-font;
+  font-weight: $cs-font-weight-medium;
+  padding: 12px;
+}
+.popup-btn {
+  border-top: 1px solid $cs-tertiary-color;
+  .mat-button-base {
+    border-radius: 4px;
+    border: 1px solid $cs-secondary-color;
+  }
+  .mat-primary {
+    border-radius: 4px;
+    background: $cs-secondary-color;
+    color: $cs-white-color;
+  }
+}
+
+.cs-rule-wrapper {
+  margin: 12px 0 24px;
+  .mat-form-field {
+    margin-right: 15px;
+    flex: 1;
+  }
+}
+.plus-minus-arrow {
+  justify-content: center;
+  img {
+    margin-left: 12px;
+    cursor: pointer;
+  }
+}

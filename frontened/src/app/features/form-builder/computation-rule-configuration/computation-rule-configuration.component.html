@@ -1,0 +1,137 @@
+<div class="cs-popup-common">
+  <div class="d-flex justify-space-between align-items input-settings">
+    Computation Rules
+    <img
+      src="./assets/images/close-icon.svg"
+      alt="close"
+      [mat-dialog-close]="true"
+    />
+  </div>
+  <form [formGroup]="computationForm">
+    <mat-dialog-content class="mat-typography cs-rules-popup">
+      <div class="cs-input-wrapper">
+        <mat-label class="common-label">Title *</mat-label>
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            placeholder="Please Enter Title"
+            [(ngModel)]="computationObject.name"
+            formControlName="name"
+          />
+        </mat-form-field>
+        <span
+        class="text-danger"
+        *ngIf="
+          (computationFormControls.name.touched || submitted) &&
+          computationFormControls.name.errors?.required
+        "
+      >
+        Name Is Required.
+      </span>
+      </div>
+      
+      <div class="cs-input-wrapper">
+        <mat-label class="common-label">Description</mat-label>
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            placeholder="Please Enter Description"
+            [(ngModel)]="computationObject.description"
+            formControlName="description"
+          />
+        </mat-form-field>
+      </div>
+      <div class="cs-rule-wrapper">
+        <mat-card>
+          <mat-card-title>Form Calculation *</mat-card-title>
+          <div class="cs-input-wrapper">
+            <mat-label class="common-label">First Field</mat-label>
+            <mat-form-field appearance="outline">
+              <mat-select
+                [(ngModel)]="computationObject.firstField"
+                formControlName="firstField"
+              >
+                <mat-option
+                  *ngFor="let compName of componentsName; let i = index"
+                  [value]="componentIds[i]"
+                  >{{
+                    componentsName[i].formBuilderComponent.configurations.label
+                  }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+            <span
+        class="text-danger"
+        *ngIf="
+          (computationFormControls.firstField.touched || submitted) &&
+          computationFormControls.firstField.errors?.required
+        "
+      >
+        First Field Is Required.
+      </span>
+          </div>
+          <div class="cs-input-wrapper">
+            <mat-label class="common-label">Operation</mat-label>
+            <mat-form-field appearance="outline">
+              <mat-select
+                [(ngModel)]="computationObject.operator"
+                formControlName="operator"
+              >
+                <mat-option value="plus">Additon</mat-option>
+                <mat-option value="minus">Subtraction</mat-option>
+                <mat-option value="multiptly">Multiplication</mat-option>
+                <mat-option value="division">Division</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <span
+        class="text-danger"
+        *ngIf="
+          (computationFormControls.operator.touched || submitted) &&
+          computationFormControls.operator.errors?.required
+        "
+      > 
+      Operation Field Is Required.
+      </span>
+          </div>
+          <div class="cs-input-wrapper">
+            <mat-label class="common-label">Second Field</mat-label>
+            <mat-form-field appearance="outline">
+              <mat-select
+                [(ngModel)]="computationObject.secondField"
+                formControlName="secondField"
+              >
+                <mat-option
+                  *ngFor="let compName of componentsName; let i = index"
+                  [value]="componentIds[i]"
+                  >{{
+                    componentsName[i].formBuilderComponent.configurations.label
+                  }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+            <span
+        class="text-danger"
+        *ngIf="
+          (computationFormControls.secondField.touched || submitted) &&
+          computationFormControls.secondField.errors?.required
+        "
+      >
+        Second Field Is Required.
+      </span>
+          </div>
+        </mat-card>
+      </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="center" class="popup-btn">
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button
+        mat-button
+        cdkFocusInitial
+        color="primary"
+        (click)="saveComputation()"
+      >
+        Save
+      </button>
+    </mat-dialog-actions>
+  </form>
+</div>

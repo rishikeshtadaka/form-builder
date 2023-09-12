@@ -1,0 +1,47 @@
+@import "../../../../styles/variable/variables";
+@import "../../../../styles/variable/colors";
+
+.cs-page-not-found {
+  background-color: $cs-titan-white-color;
+  height: calc(100vh - 46px);
+  overflow: auto;
+  position: relative;
+  .cs-page-not-found-wrapper {
+    padding: 60px 0;
+    text-align: center;
+    background-color: $cs-white-color;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    border-radius: 10px;
+    h1 {
+      font-size: 2rem;
+      font-weight: $cs-font-weight-medium;
+    }
+    h2 {
+      font-size: 1rem;
+      font-weight: $cs-font-weight-base;
+      padding: 10px 0;
+    }
+    button {
+      color: $cs-white-color;
+      text-align: center;
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: $cs-font-weight-medium;
+      line-height: 18px;
+      background-color: $cs-secondary-color;
+      padding: 15px 30px;
+      border-radius: 4px;
+      box-shadow: none;
+      border: none;
+      font-family: $cs-font;
+      cursor: pointer;
+      &:hover {
+        background-color: $cs-haiti-color;
+      }
+    }
+  }
+}

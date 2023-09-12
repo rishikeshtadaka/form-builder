@@ -1,0 +1,107 @@
+<div class="cs-parent-child-card" *ngIf="!hide">
+  <mat-card>
+    <div class="d-flex align-items justify-space-between">
+      <div class="cs-input-wrapper">
+        <mat-label class="common-label">Field Name *</mat-label>
+
+        <mat-form-field appearance="outline">
+          <mat-select
+            [(ngModel)]="expression.sourceElementId"
+            (selectionChange)="onSelectedType()"
+            placeholder="Select Field Name"
+          >
+            <mat-option
+              *ngFor="let compName of componentsName; let i = index"
+              [value]="componentIds[i]"
+              >{{
+                componentsName[i].formBuilderComponent.configurations.label
+              }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+        <span *ngIf="!expression.isFieldNameValid" class="text-danger">Field Name Is Required</span>
+        <small class="text-danger" *ngIf="">Field Name Is Required</small>
+      </div>
+      <div class="cs-input-wrapper last">
+        <mat-label class="common-label">Lookup</mat-label>
+  
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            placeholder="Enter Lookup"
+            [(ngModel)]="expression.lookup"
+            matTooltip="Enter Valid URL"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="d-flex align-items justify-space-between">
+      <div class="cs-input-wrapper">
+        <mat-label class="common-label">Comparision *</mat-label>
+
+        <mat-form-field appearance="outline">
+          <mat-select [(ngModel)]="expression.operator" 
+          placeholder="Select Comparision"
+          (selectionChange)="conditionSelectionChanged()">
+            <mat-option
+              *ngFor="let operation of numberOperations"
+              [value]="operation.value"
+              >{{ operation.viewValue }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+        <span *ngIf="!expression.isConditionValid" class="text-danger">Comparison Is Required</span>
+      </div>
+      <div class="cs-input-wrapper last">
+        <mat-label class="common-label">Value</mat-label>
+
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            placeholder="Please Enter Target Value"
+            [(ngModel)]="expression.value"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-card>
+</div>
+
+<div *ngFor="let expression of expression.childrens; let i = index">
+  <div class="cs-nested-conditions-and-or-loop">
+    <div class="cs-input-wrapper" *ngIf="i > 0">
+      <mat-form-field appearance="outline">
+        <mat-select [(ngModel)]="expression.condition" placeholder="Select Condition" (selectionChange)="childConditionSelectionChanged(i)">
+          <mat-option value="AND">AND</mat-option>
+          <mat-option value="OR">OR</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <span *ngIf="!expression.isConnectorConditionValid" class="text-danger text-danger-with-condition">Condition Is Required</span>
+
+    </div>
+    <hr *ngIf="i > 0"/>
+  </div>
+  <cs-validation-rule-expression
+    [expression]="expression"
+    [componentsName]="componentsName"
+    [componentIds]="componentIds"
+    [isRoot]="false"
+    [childIndex]="i"
+  ></cs-validation-rule-expression>
+
+  <div class="plus-minus-arrow d-flex">
+    <img
+      *ngIf="i > 0"
+      src="./assets/images/minus.svg"
+      alt="minus"
+      (click)="removeExpression(i)"
+      matTooltip="Delete Child"
+    />
+    <img
+      src="./assets/images/plus.svg"
+      alt="plus"
+      (click)="addExpression()"
+      matTooltip="Add Child"
+    />
+  </div>
+</div>

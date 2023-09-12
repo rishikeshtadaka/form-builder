@@ -1,0 +1,16 @@
+<div class="cs-input-wrapper" data-id="{{id}}_field" [ngStyle]="visible == false ? {'display': 'none'}: {}">
+  <mat-label *ngIf="!configurations.isLabelHide" class="common-label">{{configurations.label}}
+    <!-- <span *ngIf="configurations.required" style="color: red;">*</span> -->
+  </mat-label>
+  <mat-selection-list #shoes [(ngModel)]="value" name="{{ configurations.name }}"
+    (selectionChange)="selectionChange($event)" disabled="{{configurations.disable}}">
+    <ng-container *ngFor="let item of configurations.items">
+      <mat-list-option *ngIf="item" [value]="item">
+        {{ item }}
+      </mat-list-option>
+    </ng-container>
+    <span *ngIf="configurations.required" class="text-danger text-danger-astrisk-radio-check">*</span>
+  </mat-selection-list>
+  <span *ngIf="error !== ''" class="text-danger"><strong>{{error}}</strong></span>
+</div>
+<!-- [disabled]="configurations.disable" -->

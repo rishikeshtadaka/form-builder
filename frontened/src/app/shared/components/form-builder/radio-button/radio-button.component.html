@@ -1,0 +1,12 @@
+<div class="cs-input-wrapper" data-id ="{{id}}_field" [ngStyle]="visible == false ? {'display': 'none'}: {}">
+    <mat-label *ngIf="!configurations.isLabelHide" class="common-label">{{configurations.label}}
+    </mat-label>
+    <mat-radio-group [(ngModel)]="value" name="{{ configurations.name }}" (change)="onChange($event)" disabled="{{configurations.disable}}">
+        <div *ngFor="let item of configurations.items">
+            <mat-radio-button *ngIf="item" [value]="item" name="{{ configurations.name }}">{{ item }}</mat-radio-button>
+        </div>
+        <span *ngIf="configurations.required" class="text-danger text-danger-astrisk-radio-check">*</span>
+    </mat-radio-group>
+    <span *ngIf="error !== ''" class="text-danger"><strong>{{error}}</strong></span>
+</div>
+<!-- [disabled]="configurations.disable" -->

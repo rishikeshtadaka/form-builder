@@ -1,0 +1,34 @@
+<div class="cs-input-wrapper" data-id ="{{id}}_field" [ngStyle]="visible == false ? {'display': 'none'}: {}">
+  <mat-label *ngIf="!configurations.isLabelHide" class="common-label">{{ configurations.label }}
+    <!-- <span *ngIf="configurations.required" style="color: red;">*</span> -->
+  </mat-label>
+  <mat-form-field appearance="outline" class="text">
+    <input
+      matInput
+      name="{{ configurations.name }}"
+      type="{{ configurations.type }}"
+      placeholder="{{ configurations.placeholder }}"
+      required="{{ configurations.required }}"
+      matTooltip="{{ configurations.toolTip }}"
+      disabled="{{configurations.disable}}"
+      [(ngModel)]="value"
+      min="{{ configurations.minimum }}"
+      max="{{ configurations.maximum }}"
+      [errorStateMatcher]="matcher"
+      (keypress)="changeEvent($event)"
+      [matAutocomplete]="auto"
+      autocomplete="nope"
+    />
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="optionSelected($event)">
+      <mat-option *ngFor="let opt of autoOptions" [value]="opt" class="mat-auto-option-text">
+        {{opt}}
+      </mat-option>
+    </mat-autocomplete>
+    <mat-icon *ngIf="value && valid" class="tickMark">check</mat-icon>
+    <mat-spinner *ngIf="isLoading" class="tickMark" [diameter]="20"></mat-spinner>
+    <span *ngIf="configurations.required" class="text-danger text-danger-astrisk">*</span>
+  </mat-form-field>
+  <span *ngIf="error !== ''" class="text-danger"><strong>{{error}}</strong></span>
+</div>
+<!-- pdisabled="{{ configurations.disable }}" -->
+

@@ -1,0 +1,51 @@
+@import "../../../../styles/variable/colors";
+@import "../../../../styles/abstracts/mixins";
+@import "../../../../styles/variable/variables";
+
+.home-forms-section {
+  padding: 23px 30px;
+  background-color: $cs-titan-white-color;
+  .create-collection {
+    color: $cs-haiti-color;
+    font-size: $cs-base-font;
+    font-weight: $cs-font-weight-medium;
+    line-height: 18px;
+    text-transform: uppercase;
+    cursor: pointer;
+    justify-content: end;
+    img {
+      margin-right: 6px;
+    }
+  }
+  .create-form-card {
+    justify-content: center;
+    flex-direction: row;
+    .mat-card-content {
+      img {
+        display: block;
+        margin: 0 auto;
+        width: 30px;
+        margin-bottom: 10px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+.cs-new-tab-collection {
+  margin: 0 0 20px;
+  a {
+    height: auto;
+    padding: 0 0 10px;
+    opacity: 1;
+    min-width: auto;
+    color: $cs-haiti-color;
+    font-size: $cs-base-font;
+    font-weight: $cs-font-weight-medium;
+    line-height: 18px;
+    text-transform: uppercase;
+    margin: 0;
+    &:hover {
+      color: $cs-haiti-color;
+    }
+  }
+}

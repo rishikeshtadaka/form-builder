@@ -1,0 +1,55 @@
+@import "../../../../styles/variable/colors";
+@import "../../../../styles/abstracts/mixins";
+@import "../../../../styles/variable/variables";
+
+.property-drawer {
+  background: #f2f2fd;
+  width: auto;
+  padding: 0;
+  max-width: 850px;
+  margin: 0 auto 15px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.05);
+
+  .mat-drawer {
+    width: 250px;
+    border: 1px solid $cs-tertiary-color;
+    border-right: none;
+    background: $cs-white-color;
+  }
+}
+
+::ng-deep .full-screen-modal .mat-dialog-container {
+  width: 100% !important;
+  padding: 0px !important;
+  background: #f2f2fd;
+  height: calc(100vh - 40px);
+}
+
+::ng-deep .full-screen-modal .mat-dialog-content {
+    height: calc(100vh - 96px);
+    overflow-y: auto !important;
+    max-height: calc(100vh - 90px);
+    padding: 15px 0 0;
+    margin: 0;
+}
+
+.cs-preview-wrapper {
+  .input-settings {
+    border-bottom: 1px solid $cs-athens-gray-color;
+    padding: 10px 15px;
+    color: $cs-port-gore-color;
+    font-size: 1.375rem;
+    font-weight: $cs-font-weight-base;
+    background-color: $cs-white-color;
+  }
+  .component-details-wrapper {
+    margin: 10px 0;
+  }
+  .mat-grid-tile {
+    .mat-grid-tile-content {
+      .ng-star-inserted {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+<div class="cs-input-wrapper">
+  <mat-label class="common-label">Label </mat-label>
+    <mat-form-field appearance="outline">
+      <input matInput [(ngModel)]="configurations.label"/>
+    </mat-form-field>
+</div>
+<div class="cs-input-wrapper">
+    <div class="validation-wrapper d-flex justify-space-between align-items">
+      Internal <mat-slide-toggle [(ngModel)]="configurations.internal"></mat-slide-toggle>
+    </div>
+</div>
+
